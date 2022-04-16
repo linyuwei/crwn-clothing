@@ -5,22 +5,23 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { UserProvider } from './contexts/user.context'
 import { ProductsProvider } from './contexts/products.context'
+import { CartProvider } from './contexts/cart.context'
 
 import './index.scss';
 
-// import reportWebVitals from './reportWebVitals';
-
-const rooElement = document.getElementById('root');
+const rootElement = document.getElementById('root');
 
 render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
         <ProductsProvider>
-          <App />
+          <CartProvider>
+            <App />
+          </CartProvider>          
         </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  rootElement
 );
